@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container-wrapper" :class="{'blurs':isFilter}">
-      <v-header :seller="seller" @click.native="showInfoAlert"></v-header>
+      <v-header :seller="seller"></v-header>
       <div class="tab border-1px">
         <div class="tab-item">
           <router-link to="/goods">商品</router-link>
@@ -15,23 +15,18 @@
       </div>
       <router-view></router-view>
     </div>
-    <div class="infoAlert" :class="{'disNone':isHide}">
-      <v-sellerInfo :seller="seller"></v-sellerInfo>
-    </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import header from './components/header/header.vue'
-  import sellerInfo from './components/sellerInfo/sellerInfo.vue'
   const ERR_OK = 0
 
   export default {
     data() {
       return {
         seller: {},
-        isFilter: false,
-        isHide: true
+        isFilter: false
       }
     },
     created() {
@@ -44,15 +39,9 @@
       })
     },
     components: {
-      'v-header': header,
-      'v-sellerInfo': sellerInfo
+      'v-header': header
     },
     methods: {
-      showInfoAlert () {
-        this.isFilter = true
-        this.isHide = false
-//        console.log(this.isFilter)
-      }
     }
   }
 </script>
