@@ -220,8 +220,8 @@
       width:100%
       height:100%
       overflow:auto;
+      backdrop-filter: blur(10px)
       background: rgba(7,17,27,.8)
-      /*transition: all .5s*/
       &.fade-enter-active,&.fade-leave-active
         transition: opacity .5s
       &.fade-enter, &.fade-leave-to
