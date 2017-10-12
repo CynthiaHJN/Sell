@@ -42,7 +42,7 @@
       </div>
       <shopcart ref="shopcart" :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
     </div>
-    <food :food="selectedFood" ref="food"></food>
+    <food @add="cartAdd" :food="selectedFood" ref="food"></food>
   </div>
 </template>
 
@@ -241,10 +241,10 @@
             &.count
               margin-right: 12px
           .price
-            font-weight: 700px
+            font-weight: 700
             line-height: 24px
             .now
-              margin-right:18px
+              margin-right: 8px
               font-size: 14px
               color: rgb(240,20,20)
             .old
