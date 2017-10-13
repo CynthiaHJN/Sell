@@ -43,7 +43,9 @@
                 <span :class="{'icon-thumb_up':rating.rateType===0,'icon-thumb_down':rating.rateType===1}"></span>
                 <span class="item" v-for="item in rating.recommend">{{item}}</span>
               </div>
-              <div class="time">{{rating.rateTime}}</div>
+              <div class="time">
+                {{rating.rateTime | formatDate}}
+              </div>
             </div>
           </li>
         </ul>
@@ -58,6 +60,7 @@
   import ratingselect from '../../components/ratingselect/ratingselect.vue'
   import star from '../../components/star/star.vue'
   import shopcart from '../../components/shopcart/shopcart.vue'
+  import {formatDate} from '../../common/js/date'
   const ERR_OK = 0
   const ALL = 2
   export default {
@@ -116,6 +119,12 @@
         } else {
           return rateType === this.selectType
         }
+      }
+    },
+    filters: {
+      formatDate(time) {
+        let date = new Date(time)
+        return formatDate(date, 'yyyy-MM-dd hh:mm')
       }
     },
     components: {

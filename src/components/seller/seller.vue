@@ -22,7 +22,7 @@
             <div class="price">{{seller.deliveryTime}}<span class="unit">分钟</span></div>
           </li>
         </ul>
-        <div class="favorite">
+        <div class="favorite" @click="toggleFavorite">
           <i class="icon-favorite" :class="{'collect':favorite,'no-collect':!favorite}"></i>
           <div class="text">{{favoriteText}}</div>
         </div>
@@ -42,7 +42,7 @@
       <div class="pics">
         <h1 class="title">商家实景</h1>
         <div class="pic-wrapper" ref="picWrapper">
-          <ul class="pic-list">
+          <ul class="pic-list" ref="picList">
             <li class="pic-item" v-for="item in seller.pics">
               <img :src="item" height="90" width="120">
             </li>
@@ -112,18 +112,21 @@
           let picWidth = 120
           let margin = 6
           let width = (picWidth + margin) * this.seller.pics.length - margin
-          this.$refs.picWrapper.style.width = width + 'px'
-          console.log(this.$refs.picWrapper.style.width)
+          this.$refs.picList.style.width = width + 'px'
           this.$nextTick(() => {
             if (!this.picScroll) {
               this.picScroll = new BScroll(this.$refs.picWrapper, {
-                scrollX: true
+                scrollX: true,
+                eventPassthrough: 'vertical'
               })
             } else {
               this.picScroll.refresh()
             }
           })
         }
+      },
+      toggleFavorite() {
+        this.favorite = !this.favorite
       }
     },
     components: {
