@@ -33,7 +33,8 @@
         <splite></splite>
         <div class="rating">
           <h1 class="title">商品评价</h1>
-          <ratingselect @select="selectRating" @toggle="toggleContent" :selec-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></ratingselect>
+          <ratingselect @select="selectRati
+          ng" @toggle="toggleContent" :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></ratingselect>
           <div class="rating-wrapper">
             <ul v-show="food.ratings && food.ratings.length">
               <li v-for="rating in food.ratings" v-show="needShow(rating.rateType,rating.text)" class="rating-item border-1px">

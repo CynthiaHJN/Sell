@@ -57,7 +57,6 @@
     },
     methods: {
       select(type) {
-        this.selectType = type
         this.$emit('select', type)
       },
       toggleContent() {
