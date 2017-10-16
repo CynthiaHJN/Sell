@@ -193,7 +193,6 @@
         width: 40px
         text-align: center
         .icon-favorite
-          margin-bottom: 4px
           font-size: 24px
           line-height: 24px
           &.collect
@@ -201,6 +200,7 @@
           &.no-collect
             color: rgb(147,153,159)
         .text
+          margin-top: 4px
           line-height: 10px
           font-size:10px
           colo: rgb(77,85,93)
