@@ -1,5 +1,5 @@
 # sell
-
+## 根据慕课网实战项目vue饿了么高仿写的
 > sell app
 
 ## Build Setup
